@@ -9,7 +9,7 @@ const quickSand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Globe Tales",
+  title: "PH Travels",
   description: "Travel Tips & Destination Guides platform",
 };
 

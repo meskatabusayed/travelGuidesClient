@@ -1,20 +1,19 @@
+/* Navabr start .... */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useAppSelector } from "@/redux/hook";
 import { navLinks } from "@/utils/navLinks";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AccountPanel } from "../client/AccountPanel";
 import { LeftSidebar } from "../client/LeftSidebar";
-import { Button } from "../ui/button";
 import "../../styles/logo.css"
 
 const Header = () => {
   const location = usePathname();
 
-  const { user, isLoading, token } = useAppSelector((state) => state.auth);
+  const { user } = useAppSelector((state) => state.auth);
 
   return (
     <header className="py-3 lg:py-3 border-b sticky top-0 z-50 bg-[#1E1E1E]">
@@ -56,3 +55,4 @@ const Header = () => {
 };
 
 export default Header;
+/* Navabr end */
