@@ -20,15 +20,15 @@ const FeedContent = () => {
   const dispatch = useAppDispatch();
 
   const { data, isLoading, isFetching } = useGetAllPostQuery({
-    page: searchParams.get("page") || 1,
-    limit: 10,
+    page: searchParams.get("page"),
+    
     categories: searchParams.get("category") || "",
     searchTerm: searchParams.get("searchTerm") || "",
     premium: searchParams.get("premium") || "",
     sort: searchParams.get("sort") || "",
   });
 
-  // Fetch posts and append to the list when data changes
+ 
   useEffect(() => {
     if (data?.data) {
       dispatch(setPost({ post: data.data, new: false }));
@@ -36,9 +36,9 @@ const FeedContent = () => {
   }, [data, dispatch]);
 
   useEffect(() => {
-    // remove all the query params from the url
+    
     if (searchParams.get("page")) {
-      router.push("/?page=1");
+      router.push("/");
     }
   }, []);
 
