@@ -35,11 +35,7 @@ interface Group {
 export default function SquareSocialMedia() {
   return (
     <div className="flex h-full bg-gray-100">
-      {/* Left Sidebar */}
-
-      {/* Main Content */}
-
-      {/* Right Sidebar */}
+      
     </div>
   );
 }

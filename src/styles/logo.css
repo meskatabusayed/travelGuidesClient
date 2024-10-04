@@ -1,0 +1,25 @@
+.logo-container {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #1E1E1E; 
+  }
+  
+  .logo-text {
+    font-size: 1.25rem; 
+    font-weight: bold;
+    color: #ffffff; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+    transition: color 0.3s ease, transform 0.3s ease; 
+  }
+  
+  .logo-container:hover .logo-text {
+    color: #1877F2; 
+    transform: scale(1.05); 
+  }
+  
+  /* Optionally, add a border or additional styling for a more polished look */
+  .logo-container {
+    border: 2px solid #1877F2; /* A complementary border color */
+  }

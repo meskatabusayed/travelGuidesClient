@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { AccountPanel } from "../client/AccountPanel";
 import { LeftSidebar } from "../client/LeftSidebar";
 import { Button } from "../ui/button";
+import "../../styles/logo.css"
 
 const Header = () => {
   const location = usePathname();
@@ -16,19 +17,14 @@ const Header = () => {
   const { user, isLoading, token } = useAppSelector((state) => state.auth);
 
   return (
-    <header className="py-3 lg:py-3 border-b sticky top-0 z-50  bg-gradient-to-r from-orange-500 via-purple-500 to-purple-700 mb-10">
+    <header className="py-3 lg:py-3 border-b sticky top-0 z-50 bg-[#1E1E1E]">
       <div className="layout_container flex justify-between gap-4 items-center">
         <div className="flex items-center gap-2">
           <LeftSidebar />
           <Link href={"/"} className="text-lg font-bold flex flex-col items-center">
-            <Image
-              width={60}
-              height={60}
-              src="/images/logo.png"
-              alt="logo"
-              className="w-[120px]  md:flex hidden"
-            />
-            <h2 className="mt-[-10px]">Globe Tales</h2>
+          <div className="logo-container">
+          <span className="logo-text">PH Travels</span>
+        </div>
           </Link>
         </div>
         <nav className="hidden lg:flex gap-5 items-center ">
@@ -36,7 +32,7 @@ const Header = () => {
             <Link
               key={nav.path}
               href={nav.path}
-              className={`text-lg font-bold text-black hover:text-white ${
+              className={`text-lg font-bold text-white hover:text-[#1877F2] ${
                 location === nav.path && "font-extrabold underline"
               }`}
             >
@@ -49,8 +45,8 @@ const Header = () => {
           {user ? (
             <AccountPanel />
           ) : (
-            <Link href="/login" className="text-2xl text-black hover:text-green-500">
-              <Button className="py-2">Login</Button>
+            <Link href="/login" className="relative px-[18px] py-[5px] bg-[#1877F2] text-white rounded-full flex items-center gap-[10px] overflow-hidden">
+              Login
             </Link>
           )}
         </div>
