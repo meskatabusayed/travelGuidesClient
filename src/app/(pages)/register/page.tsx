@@ -2,7 +2,6 @@
 
 import { useRegisterCustomerMutation } from "@/redux/features/auth/auth.api";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -56,129 +55,116 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center px-[15px]">
-       <div className="w-[500px] h-[450px] overflow-hidden rounded-[15px]">
-          <Image
-            src={"/images/signUp.jpg"}
-            alt="auth"
-            width={300}
-            className="w-full h-full object-cover"
-            height={350}
-          />
-        </div>
-      <div className="bg-white p-[25px]  max-w-xl shadow-md rounded-[12px]">
-        <h2 className=" font-bold mb-6 text-center text-[35px]">
-          Create an Account
-        </h2>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleRegister}
-        >
-          {({ isSubmitting }) => (
-            <Form>
-              <div className="mb-4">
-                <label className="block text-primaryTxt text-[18px] font-[600]">
-                  Your firstname
-                </label>
-                <Field
-                  type="text"
-                  name="firstName"
-                  className="mt-1 block w-full px-3 py-2 border border-borderColor rounded-md outline-none"
-                />
-                <ErrorMessage
-                  name="firstName"
-                  component="div"
-                  className="text-red-500 text-sm"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-primaryTxt text-[18px] font-[600]">
-                  Your last name
-                </label>
-                <Field
-                  type="text"
-                  name="lastName"
-                  className="mt-1 block w-full px-3 py-2 border border-borderColor rounded-md outline-none"
-                />
-                <ErrorMessage
-                  name="lastName"
-                  component="div"
-                  className="text-red-500 text-sm"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-primaryTxt text-[18px] font-[600]">
-                  Email
-                </label>
-                <Field
-                  type="email"
-                  name="email"
-                  className="mt-1 block w-full px-3 py-2 border border-borderColor rounded-md outline-none"
-                />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className="text-red-500 text-sm"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-primaryTxt text-[18px] font-[600]">
-                  Password
-                </label>
-                <Field
-                  type="password"
-                  name="password"
-                  className="mt-1 block w-full px-3 py-2 border border-borderColor rounded-md outline-none"
-                />
-                <ErrorMessage
-                  name="password"
-                  component="div"
-                  className="text-red-500 text-sm"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-primaryTxt text-[18px] font-[600]">
-                  Confirm Password
-                </label>
-                <Field
-                  type="password"
-                  name="confirmPassword"
-                  className="mt-1 block w-full px-3 py-2 border border-borderColor rounded-md outline-none"
-                />
-                <ErrorMessage
-                  name="confirmPassword"
-                  component="div"
-                  className="text-red-500 text-sm"
-                />
-              </div>
+    <div className="relative flex items-center justify-center min-h-screen lg:mt-[62px] bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500">
+  <div className="flex flex-col items-center justify-center gap-[30px] p-8 lg:p-12 rounded-2xl shadow-xl backdrop-blur-md bg-opacity-70 bg-white max-w-md w-full mx-4">
+    <h2 className="font-extrabold text-center text-[36px] text-gray-800 mb-8">
+      Create an Account
+    </h2>
+    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleRegister}>
+      {({ isSubmitting }) => (
+        <Form className="space-y-6 w-full">
+          <div>
+            <label className="block text-gray-700 text-[18px] font-semibold mb-2">
+              Your First Name
+            </label>
+            <Field
+              type="text"
+              name="firstName"
+              placeholder="Enter your first name"
+              className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 outline-none transition-all duration-200 ease-in-out"
+            />
+            <ErrorMessage
+              name="firstName"
+              component="div"
+              className="text-red-500 text-sm mt-1"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 text-[18px] font-semibold mb-2">
+              Your Last Name
+            </label>
+            <Field
+              type="text"
+              name="lastName"
+              placeholder="Enter your last name"
+              className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 outline-none transition-all duration-200 ease-in-out"
+            />
+            <ErrorMessage
+              name="lastName"
+              component="div"
+              className="text-red-500 text-sm mt-1"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 text-[18px] font-semibold mb-2">
+              Email
+            </label>
+            <Field
+              type="email"
+              name="email"
+              placeholder="Enter your email address"
+              className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 outline-none transition-all duration-200 ease-in-out"
+            />
+            <ErrorMessage
+              name="email"
+              component="div"
+              className="text-red-500 text-sm mt-1"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 text-[18px] font-semibold mb-2">
+              Password
+            </label>
+            <Field
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 outline-none transition-all duration-200 ease-in-out"
+            />
+            <ErrorMessage
+              name="password"
+              component="div"
+              className="text-red-500 text-sm mt-1"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 text-[18px] font-semibold mb-2">
+              Confirm Password
+            </label>
+            <Field
+              type="password"
+              name="confirmPassword"
+              placeholder="Re-enter your password"
+              className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 outline-none transition-all duration-200 ease-in-out"
+            />
+            <ErrorMessage
+              name="confirmPassword"
+              component="div"
+              className="text-red-500 text-sm mt-1"
+            />
+          </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-primaryMat text-white py-[12px]  hover:bg-orange-600 rounded-[5px]"
-              >
-                Submit & Register
-              </button>
-            </Form>
-          )}
-        </Formik>
-        <div className="mt-6 text-start">
-          <p className="text-gray-700">
-            Already have an account?{" "}
-            <Link href="/login" className="text-primaryMat">
-              Login
-            </Link>
-          </p>
-        </div>
-
-        <p className="mt-4 text-gray-600 text-sm text-start">
-          Note: Your personal data will be used to support your experience
-          throughout this website, to manage access to your account, and for
-          other purposes described in our privacy policy.
-        </p>
-      </div>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full px-[20px] py-[15px] bg-purple-600 text-white font-bold hover:bg-purple-700 rounded-lg transition-all duration-300 transform hover:scale-105"
+          >
+            Sign Up
+          </button>
+        </Form>
+      )}
+    </Formik>
+    <div className="mt-8 text-center">
+      <p className="text-gray-600">
+        Already have an account?{" "}
+        <Link href="/login" className="text-purple-600 font-semibold hover:underline">
+          Sign in here
+        </Link>
+      </p>
     </div>
+  </div>
+</div>
+
   );
 };
 
