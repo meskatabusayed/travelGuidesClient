@@ -11,6 +11,7 @@ import PostCard from "../PostCard/PostCard";
 import PostCardSkeleton from "../skeletons/PostCardSkeletons";
 import NoPostFound from "./NoPostFound";
 
+
 const FeedContent = () => {
   const { data: posts } = useAppSelector((state) => state.post);
   const searchParams = useSearchParams();
@@ -67,7 +68,7 @@ const FeedContent = () => {
   
 
   return (
-    <div className="h-[calc(100vh-200px)] overflow-y-auto overflow-x-hidden smoothBar bg-gradient-to-r from-orange-500 via-purple-500 to-purple-700">
+    <div>
       <InfiniteScroll
         pageStart={0}
         loadMore={handleLoadMore}
@@ -79,6 +80,8 @@ const FeedContent = () => {
           </div>
         }
       >
+       
+        
         {posts.map((post, i) => {
           return <PostCard post={post} key={post._id} />;
         })}
