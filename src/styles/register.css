@@ -1,0 +1,91 @@
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.register-container {
+    background-color: #ffffff;
+    width: 450px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Title Styling */
+.register-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+
+.register-input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.register-input:focus {
+    border-color: #ff5e62;
+    outline: none;
+}
+
+.register-button {
+    width: 100%;
+    background: #ff5e62;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.register-button:hover {
+    background: #ff3b4f;
+}
+
+
+.already-account {
+    display: block;
+    margin-top: 15px;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.already-account:hover {
+    color: #333;
+}
+
+
+@media (max-width: 500px) {
+    .register-container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .register-title {
+        font-size: 1.75rem;
+    }
+
+    .register-button {
+        padding: 12px;
+    }
+}
