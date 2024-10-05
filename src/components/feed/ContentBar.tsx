@@ -12,7 +12,7 @@ const ContentBar = () => {
 
   return (
     <div className="w-64 bg-white p-4 hidden lg:block bg-gradient-to-r from-orange-500 via-purple-500 to-purple-700">
-      <h2 className="font-semibold mb-4">Seemed Stories</h2>
+      
 
       {user ? (
         <CreatePostModal />

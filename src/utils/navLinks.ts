@@ -12,4 +12,8 @@ export const navLinks = [
     path: "/contact-us",
     route: "Contact Us",
   },
+  {
+    path: "/post-create",
+    route: "Post Create",
+  },
 ];
