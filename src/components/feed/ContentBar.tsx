@@ -11,23 +11,86 @@ const ContentBar = () => {
   const { user } = useAppSelector((state) => state.auth);
 
   return (
-    <div className="w-64 bg-white p-4 hidden lg:block bg-gradient-to-r from-orange-500 via-purple-500 to-purple-700">
-      
+    <div className="sidebar-container">
+      <div className="create-post-section">
+        {user ? (
+          <CreatePostModal />
+        ) : (
+          <Button
+            variant="outline"
+            className="create-story-button"
+            onClick={() => toast.error('Login first to create post')}
+          >
+            <PlusCircle className="icon" />
+            Create Your Story
+          </Button>
+        )}
+      </div>
+      <div className="followers-list">
+        <MyFollowers />
+      </div>
+      <div className="following-list">
+        <FolowingList />
+      </div>
 
-      {user ? (
-        <CreatePostModal />
-      ) : (
-        <Button
-          variant="outline"
-          className="w-full mb-4 bg-primaryMat text-white"
-          onClick={() => toast.error("Login first to create post")}
-        >
-          <PlusCircle className="mr-2 h-4 w-4" />
-          Create Your Story
-        </Button>
-      )}
-      <MyFollowers />
-      <FolowingList />
+      <style jsx>{`
+        .sidebar-container {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          background: #1877F2;
+          padding: 2rem;
+          border-radius: 15px;
+        }
+        .create-post-section {
+          flex: 1;
+          background-color: rgba(255, 255, 255, 0.9);
+          padding: 1rem;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .followers-list,
+        .following-list {
+          flex: 1;
+          background-color: rgba(255, 255, 255, 0.9);
+          padding: 1rem;
+          border-radius: 10px;
+          overflow: auto;
+        }
+        .create-story-button {
+          width: 100%;
+          background: #6b6bff;
+          color: #fff;
+          padding: 0.8rem;
+          border: none;
+          border-radius: 6px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background 0.3s ease;
+        }
+        .create-story-button:hover {
+          background: #5050ff;
+        }
+        .icon {
+          margin-right: 0.5rem;
+          height: 1.5rem;
+          width: 1.5rem;
+        }
+        @media (min-width: 1024px) {
+          .sidebar-container {
+            flex-direction: row;
+          }
+        }
+        @media (max-width: 1024px) {
+          .sidebar-container {
+            flex-direction: column;
+          }
+        }
+      `}</style>
     </div>
   );
 };
