@@ -25,6 +25,7 @@ const GetPremiumAccess = () => {
     setIsLoading(true);
     try {
       const url = baseUrl + "/user/get-varify-url";
+      console.log("url" , url);
       const res = await fetch(url, {
         method: "POST",
         headers: {
