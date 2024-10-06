@@ -1,174 +1,117 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Globe, Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
-const ContactUsView = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+import React from 'react';
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success(
-      "Thank you for your message. We&apos;ll get back to you soon."
-    );
-  };
-
+const ContactUsView: React.FC = () => {
   return (
-    <div className="container mx-auto px-4 py-8 space-y-12">
-      <header className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight">Contact Us</h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Have questions or feedback? We&apos;d love to hear from you. Get in
-          touch with our team for support, partnerships, or just to say hello!
-        </p>
-      </header>
-
-      <div className="grid md:grid-cols-2 gap-8">
-        <Card>
-          <CardHeader>
-            <CardTitle>Send Us a Message</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="name">Name</Label>
-                <Input
-                  id="name"
-                  placeholder="Your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea
-                  id="message"
-                  placeholder="Your message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  required
-                />
-              </div>
-              <Button type="submit">Send Message</Button>
-            </form>
-          </CardContent>
-        </Card>
-
-        <div className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Contact Information</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-5 h-5 text-muted-foreground" />
-                <span>123 Travel Street, Adventure City, 12345</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="w-5 h-5 text-muted-foreground" />
-                <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-5 h-5 text-muted-foreground" />
-                <span>contact@traveltips.com</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Globe className="w-5 h-5 text-muted-foreground" />
-                <span>www.traveltips.com</span>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Office Hours</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-              <p>Saturday: 10:00 AM - 4:00 PM</p>
-              <p>Sunday: Closed</p>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-
-      <section className="space-y-6">
-        <h2 className="text-3xl font-semibold text-center">
-          Frequently Asked Questions
-        </h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>How do I create an account?</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>
-                To create an account, click on the &quot;Loginp&quot; button in
-                the top right corner of our homepage. Follow the prompts to
-                enter your details and set up your profile.
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Can I contribute my own travel stories?</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Once you&apos;ve created an account, you can submit your travel
-                stories through your user dashboard. We encourage all members to
-                share their unique experiences.
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>
-                What&apos;s included in the premium membership?
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Premium members enjoy ad-free browsing, access to exclusive
-                content, early access to new features, and special travel deals
-                from our partners.
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>How can I report inappropriate content?</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>
-                If you come across any content that violates our community
-                guidelines, please use the &quot;Report&quot; button next to the
-                post or contact our support team directly.
-              </p>
-            </CardContent>
-          </Card>
+    <div className="contact-us-container">
+      <section className="contact-hero-section">
+        <div className="contact-hero-text">
+          <h1>Get in Touch with Us</h1>
+          <p>We are here to help and answer any questions you might have. We look forward to hearing from you!</p>
         </div>
       </section>
+      <section className="contact-form-section">
+        <div className="contact-form-wrapper">
+          <h2>Contact Us</h2>
+          <form className="contact-form">
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input type="text" id="name" placeholder="Enter your name" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input type="email" id="email" placeholder="Enter your email" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="message">Message</label>
+              <textarea id="message" rows={5} placeholder="Enter your message" required></textarea>
+            </div>
+            <button type="submit" className="submit-button">Send Message</button>
+          </form>
+        </div>
+      </section>
+      <section className="contact-info-section">
+        <h2>Contact Information</h2>
+        <p>Email: support@ph-travels.com</p>
+        <p>Phone: +8801767676544</p>
+        <p>Address: 123 Banani, Dhaka, Bangladesh</p>
+      </section>
+      <style jsx>{`
+        .contact-us-container {
+          max-width: 800px;
+          margin: auto;
+          padding: 2rem;
+          color: #fff;
+          font-family: Arial, sans-serif;
+        }
+        .contact-hero-section {
+          background: linear-gradient(to right, #1e3c72, #2a5298);
+          padding: 3rem;
+          text-align: center;
+          border-radius: 12px;
+          margin-bottom: 2rem;
+        }
+        .contact-hero-text h1 {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+        }
+        .contact-form-section {
+          background-color: #2c2c2c;
+          padding: 2rem;
+          border-radius: 8px;
+          margin-bottom: 2rem;
+        }
+        .contact-form-wrapper {
+          max-width: 600px;
+          margin: auto;
+        }
+        .contact-form h2 {
+          color: #66b3ff;
+          text-align: center;
+          margin-bottom: 1.5rem;
+        }
+        .form-group {
+          margin-bottom: 1.5rem;
+        }
+        .form-group label {
+          display: block;
+          margin-bottom: 0.5rem;
+        }
+        .form-group input,
+        .form-group textarea {
+          width: 100%;
+          padding: 0.8rem;
+          border: none;
+          border-radius: 6px;
+          font-size: 1rem;
+        }
+        .submit-button {
+          background: #1877F2;
+          color: #fff;
+          padding: 0.8rem 2rem;
+          font-size: 1rem;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+        .submit-button:hover {
+          background: #558acc;
+        }
+        .contact-info-section {
+          background-color: #333;
+          padding: 2rem;
+          border-radius: 8px;
+          text-align: center;
+        }
+        .contact-info-section h2 {
+          color: #66b3ff;
+          margin-bottom: 1rem;
+        }
+      `}</style>
     </div>
   );
 };
+
 export default ContactUsView;
