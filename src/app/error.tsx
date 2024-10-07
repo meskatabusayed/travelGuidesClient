@@ -1,4 +1,4 @@
-"use client"; // Error components must be Client Components
+"use client"; 
 
 
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,7 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
+    
     console.error(error);
   }, [error]);
 
@@ -21,22 +21,19 @@ export default function Error({
     <div className="flex min-h-[100dvh] flex-col items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-md text-center">
         <div className="mx-auto h-12 w-12 text-primary" />
-        <h1 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h1 className="mt-4 text-3xl font-bold text-red-600 sm:text-4xl">
           Oops, something went wrong!
         </h1>
-        <p className="mt-4 text-muted-foreground">
-          We&apos;re sorry, but an unexpected error has occurred. Please try
-          again later or contact support if the issue persists.
-        </p>
+        
         <div className="mt-6">
           <Link
             href="#"
-            className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            className="inline-flex items-center rounded-md bg-[#1877F2] px-4 py-2 text-sm font-medium  shadow-sm transition-colors hover:bg-[#1877F2]/90 focus:outline-none focus:ring-2 focus:ring-[#1877F2] focus:ring-offset-2 mr-2"
             prefetch={false}
           >
             Go to Homepage
           </Link>
-          <Button onClick={reset}>Try again</Button>
+          <Button className="bg-[#34b3a0]" onClick={reset}>Try again</Button>
         </div>
       </div>
     </div>

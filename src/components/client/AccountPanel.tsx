@@ -65,10 +65,10 @@ export function AccountPanel() {
         </>
       )}
     </DropdownMenuGroup>
-    <DropdownMenuSeparator className="h-[1px] bg-gray-300 mx-2 my-1" />
-    <DropdownMenuItem onClick={handleLogout} className="cursor-pointer hover:bg-red-100 transition-colors duration-200 px-4 py-2 rounded-md">
-     <span className="text-red-800">Log out</span>
-      <LogOut className="mr-2 h-4 w-4 text-red-600" />
+    <DropdownMenuSeparator className="h-[1px] bg-[#1877F2] mx-2 my-1" />
+    <DropdownMenuItem onClick={handleLogout} className="cursor-pointer hover:bg-[#1877F2] transition-colors duration-200 px-4 py-2 rounded-md bg-red-600">
+     <span className="text-white hover:bg-[#1877F2]">Log out</span>
+      <LogOut className="ml-2 h-4 w-4 text-white" />
       
     </DropdownMenuItem>
   </DropdownMenuContent>

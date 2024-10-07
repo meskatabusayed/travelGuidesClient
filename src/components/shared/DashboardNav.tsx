@@ -48,7 +48,7 @@ export function DashboardNav({ items }: DashboardNavProps) {
                 align="center"
                 side="right"
                 sideOffset={8}
-                // className={!isMinimized ? "hidden" : "inline-block"}
+                
               >
                 {title}
               </TooltipContent>

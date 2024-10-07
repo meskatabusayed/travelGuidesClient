@@ -11,6 +11,7 @@ import { adminLinks } from "../../routes";
 import { Button } from "../ui/button";
 import { DashboardNav } from "./DashboardNav";
 
+
 type SidebarProps = {
   className?: string;
   setIsopen: React.Dispatch<SetStateAction<boolean>>;
@@ -24,20 +25,20 @@ export default function Sidebar({
 }: SidebarProps) {
   const dispatch = useAppDispatch();
 
-  // outside click hide the drawer
+ 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
-      // event target
+     
       const target = event.target as HTMLElement;
-      // screent width
+      
       const screen = window.screen.width;
 
-      // ---**** return if the screen width is larger
+     
       if (screen > 1024) {
         return;
       }
 
-      // return if the user click on the sidebar or the navbar
+     
       if (target.closest(".sidebar") || target.closest(".menuBTn")) {
         return;
       }
@@ -45,7 +46,7 @@ export default function Sidebar({
       setIsopen(false);
     };
 
-    // hide sidebar on clicking outside
+    
     if (isOpen) {
       document.body.addEventListener("mousedown", handleOutsideClick);
     } else {
@@ -57,10 +58,10 @@ export default function Sidebar({
     };
   }, [isOpen, setIsopen]);
 
-  const toggleStyle = {
+ /*  const toggleStyle = {
     left: isOpen ? "277px" : "10px",
     rotate: isOpen ? "0deg" : "180deg",
-  };
+  }; */
 
   const hanldleLogout = () => {
     Cookies.remove("refreshToken");
@@ -73,50 +74,54 @@ export default function Sidebar({
   };
   return (
     <aside
-      style={{
-        transition: "0.3s",
-        width: `${isOpen ? "287px" : "0px"}`,
-        display: "flex",
-      }}
+  style={{
+    transition: "0.4s ease-in-out",
+    width: isOpen ? "260px" : "70px",
+    display: "flex",
+  }}
+  className={cn(
+    `fixed top-0 left-0 h-screen border-r bg-gradient-to-b from-white to-gray-100 transition-[width] duration-500 md:block
+    shrink-0 overflow-hidden z-[9999] sidebar flex flex-col justify-between py-6`,
+    className
+  )}
+>
+
+  <div className="flex items-center justify-between px-4 mb-8">
+    <Link href={"/"}>
+      <h3 className="font-bold text-xl text-blue-600">
+        {isOpen ? "PH Travels" : "PH"}
+      </h3>
+    </Link>
+    <ChevronLeft
       className={cn(
-        `md:relative fixed top-0 left-0  h-screen border-r bg-card transition-[width] duration-500 md:block
-        w-72 shrink-0 overflow-hidden z-[9999] sidebar flex flex-col gap-[20px] justify-between pb-[20px]`,
-        className
+        "cursor-pointer rounded-full border border-gray-300 bg-white p-1 text-xl shadow-sm hover:shadow-md transition-all",
+        isOpen ? "rotate-0" : "rotate-180"
       )}
-    >
-      <div className="w-full">
-        <div className="hidden p-5 pt-10 lg:block">
-          <Link href={"/"}>
-            <h3 className="font-[600] text-[20px]">Globe Tales</h3>
-          </Link>
-        </div>
+      onClick={() => setIsopen(!isOpen)}
+    />
+  </div>
 
-        <ChevronLeft
-          className={cn(
-            "fixed z-20 top-[40%] cursor-pointer rounded-full border bg-background text-3xl text-foreground md:flex hidden"
-          )}
-          style={{
-            transition: "0.3s",
-            ...toggleStyle,
-          }}
-          onClick={() => setIsopen(!isOpen)}
-        />
 
-        <div className="space-y-4 py-4">
-          <div className="px-3 py-2">
-            <div className="mt-3 space-y-1" onClick={handleCloseBar}>
-              <DashboardNav items={adminLinks} />
-            </div>
-          </div>
-        </div>
-      </div>
-      <Button
-        onClick={hanldleLogout}
-        className="w-[90%] mx-auto"
-        variant={"destructive"}
-      >
-        Logout
-      </Button>
-    </aside>
+  <div className="space-y-6 flex-1 overflow-y-auto px-4">
+    <div className="mt-3" onClick={handleCloseBar}>
+      <DashboardNav items={adminLinks} />
+    </div>
+  </div>
+
+  <Button
+    onClick={hanldleLogout}
+    className={`w-[90%] mx-auto bg-red-500 hover:bg-red-600 text-white font-medium rounded-md py-3 shadow transition-all ${
+      isOpen ? "block" : "hidden"
+    }`}
+    variant={"destructive"}
+  >
+    Logout 
+    
+  </Button>
+</aside>
+
+  
+  
+  
   );
 }

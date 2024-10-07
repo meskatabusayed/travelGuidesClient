@@ -108,7 +108,7 @@ export default function CreatePostModal() {
       <DialogTrigger asChild>
         <Button
           variant="outline"
-          className="w-full mb-4 bg-primaryMat text-white"
+          className="w-full mb-4 bg-[#1877F2] text-white"
         >
           <PlusCircle className="mr-2 h-4 w-4" />
           Create Your Post
@@ -116,10 +116,8 @@ export default function CreatePostModal() {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[625px] max-h-[80vh] overflow-auto smoothBar">
         <DialogHeader>
-          <DialogTitle>Create a New Travel Post</DialogTitle>
-          <DialogDescription>
-            Share your travel tips, guides, and stories with the community.
-          </DialogDescription>
+          <DialogTitle>Create Post</DialogTitle>
+          
         </DialogHeader>
 
         <PrimeReactProvider>
@@ -193,17 +191,13 @@ export default function CreatePostModal() {
                 </span>
               )}
             </div>
-            <Button type="submit" className="w-full" onClick={handleSubmit}>
+            <Button type="submit" className="w-full bg-[#1877F2]" onClick={handleSubmit}>
               Create Post
             </Button>
           </div>
         </PrimeReactProvider>
 
-        <DialogFooter>
-          <Button type="button" className="w-full">
-            Cancel
-          </Button>
-        </DialogFooter>
+        
       </DialogContent>
     </Dialog>
   );
