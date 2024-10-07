@@ -180,7 +180,7 @@ const ProfileUpdate = () => {
 
             <Button
               type="submit"
-              className="bg-primaryMat text-white w-[100px]"
+              className="bg-[#1877F2] text-white w-[100px]"
             >
               Submit
             </Button>

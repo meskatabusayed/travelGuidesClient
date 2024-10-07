@@ -1,5 +1,5 @@
 "use client"
-import { LayoutDashboard, LogOut, Settings, User } from "lucide-react";
+import { LayoutDashboard, LogOut,  User } from "lucide-react";
 
 import {
   DropdownMenu,

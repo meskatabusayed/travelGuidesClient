@@ -15,7 +15,7 @@ const NotEligble = () => {
       <DialogTrigger asChild>
         <Button
           variant={"outline"}
-          className="mt-[20px] relative group/premium"
+          className="mt-[20px] relative bg-[#1877F2] text-white"
         >
           Verify Account
           

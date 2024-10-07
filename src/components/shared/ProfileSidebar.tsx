@@ -40,7 +40,7 @@ const ProfileSidebar = () => {
         ))}
 
       <button
-        className="w-[240px] border-[1px] border-borderColor py-[12px] rounded-[5px] flex items-center justify-start gap-[5px] font-[500] pl-[20px] bg-red-400 text-white mt-[50px]"
+        className="w-[240px] border-[1px] border-borderColor py-[12px] rounded-[5px] flex items-center justify-start gap-[5px] font-[500] pl-[20px] bg-red-600 text-white mt-[50px]"
         onClick={handleLogout}
       >
         <CiLogout /> Logout
