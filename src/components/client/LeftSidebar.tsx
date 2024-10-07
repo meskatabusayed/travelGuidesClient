@@ -20,7 +20,7 @@ export function LeftSidebar() {
   return (
     <div className="block lg:hidden">
       <Sheet>
-        <SheetTrigger asChild>
+        <SheetTrigger className="bg-white" asChild>
           <Menu />
         </SheetTrigger>
         <SheetContent side="left" className="bg-white">
