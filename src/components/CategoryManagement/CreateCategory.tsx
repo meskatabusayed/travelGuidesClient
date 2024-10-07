@@ -29,7 +29,7 @@ const CreateCategory = () => {
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
-        <Button>
+        <Button className="bg-[#1877F2]">
           <PlusCircle className="mr-2 h-4 w-4" />
           Create Category
         </Button>

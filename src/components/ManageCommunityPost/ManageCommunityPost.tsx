@@ -60,8 +60,7 @@ const DeleteCommunityPost: React.FC<IProps> = ({ id }) => {
             Confirm Deletion
           </DialogTitle>
           <DialogDescription>
-            Are you sure you want to delete this Post? This action cannot be
-            undone.
+            Are you sure you want to delete this Post? 
           </DialogDescription>
         </DialogHeader>
 

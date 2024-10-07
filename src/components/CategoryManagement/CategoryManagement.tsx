@@ -29,47 +29,55 @@ export default function CategoryManagement() {
   });
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Category Search</h1>
-        <CreateCategory />
-      </div>
-      <Input
-        type="text"
-        placeholder="Search categories..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="max-w-sm"
-      />
-      <Card>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Category Name</TableHead>
-                <TableHead>Created At</TableHead>
-                <TableHead>Action</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {data?.data?.map((category) => (
-                <TableRow key={category._id}>
-                  <TableCell>{category.label}</TableCell>
-                  <TableCell>
-                    {format(
-                      new Date(category.createdAt || "2024-09-29"),
-                      "MMM dd, yyyy"
-                    )}
-                  </TableCell>
-                  <TableCell>
-                    <DeleteCategory id={category._id} />
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
-    </div>
+    <div className="flex flex-col gap-6 bg-white p-6 rounded-lg shadow-md">
+ 
+  <div className="flex justify-between items-center pb-4 border-b border-gray-300">
+    <h1 className="text-3xl font-bold text-indigo-800">Category Search</h1>
+    <CreateCategory />
+  </div>
+
+ 
+  <div className="flex items-center justify-between">
+    <Input
+      type="text"
+      placeholder="Search categories..."
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      className="max-w-md p-3 border rounded-lg shadow-sm"
+    />
+  </div>
+
+  
+  <Card className="bg-gray-50 rounded-xl shadow-lg">
+    <CardContent>
+      <Table className="min-w-full">
+        <TableHeader>
+          <TableRow>
+            <TableHead className="text-left text-lg text-gray-700">Category Name</TableHead>
+            <TableHead className="text-left text-lg text-gray-700">Created At</TableHead>
+            <TableHead className="text-left text-lg text-gray-700">Action</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {data?.data?.map((category) => (
+            <TableRow key={category._id} className="hover:bg-gray-100 transition-colors duration-150">
+              <TableCell className="py-4">{category.label}</TableCell>
+              <TableCell className="py-4">
+                {format(
+                  new Date(category.createdAt || "2024-09-29"),
+                  "MMM dd, yyyy"
+                )}
+              </TableCell>
+              <TableCell className="py-4">
+                <DeleteCategory id={category._id} />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </CardContent>
+  </Card>
+</div>
+
   );
 }

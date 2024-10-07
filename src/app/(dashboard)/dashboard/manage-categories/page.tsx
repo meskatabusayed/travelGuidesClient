@@ -1,8 +1,9 @@
-import CategoryManagementView from "@/views/CategoryManagementView";
+import CategoryManagement from "@/components/CategoryManagement/CategoryManagement";
+
 
 
 const page = () => {
-  return <CategoryManagementView />;
+  return <CategoryManagement />;
 };
 
 export default page;
