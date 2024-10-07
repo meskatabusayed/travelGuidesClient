@@ -45,10 +45,10 @@ const FeedContent = () => {
 
   const handleLoadMore = () => {
     if (!isFetching) {
-      const params = new URLSearchParams(searchParams);
+      /* const params = new URLSearchParams(searchParams);
       const page = Number(searchParams.get("page") || 0) || 0;
       params.set("page", String(page + 1));
-      router.push(`?${params.toString()}`);
+      router.push(`?${params.toString()}`); */
     }
   };
 

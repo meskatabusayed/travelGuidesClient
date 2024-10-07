@@ -18,7 +18,7 @@ import { FaCommentDots } from "react-icons/fa";
 import React, { useState } from "react";
 import { toast } from "sonner";
 import CommentCard from "../commentCard/CommentCard";
-import GlobeTalesPagination from "../shared/GlobeTalesPagination";
+
 import CommentCardSkeleton from "../skeletons/CommentCardSkeleton";
 import PostCardSkeleton from "../skeletons/PostCardSkeletons";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
@@ -151,8 +151,8 @@ const PostModal: React.FC<IPorps> = ({ post, trigger }) => {
                     }
                   }}
                 />
-                <Button type="submit" className="mt-2">
-                  Post Comment
+                <Button type="submit" className="mt-2 bg-[#1877F2]">
+                   Comment
                 </Button>
               </div>
             </div>
@@ -163,12 +163,7 @@ const PostModal: React.FC<IPorps> = ({ post, trigger }) => {
             <CommentCard setPage={setPage} comment={comment} key={i} />
           ))}
 
-          <DialogFooter className="mt-4 flex justify-start w-full">
-            <GlobeTalesPagination
-              totalDoc={data?.totalDoc || 0}
-              className="w-fit"
-            />
-          </DialogFooter>
+          
         </div>
       </DialogContent>
     </Dialog>

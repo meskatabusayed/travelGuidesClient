@@ -17,7 +17,7 @@ import { BadgeCheck, CalendarDays, UserPlus } from "lucide-react";
 import { ImSpinner2 } from "react-icons/im";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
-import GlobeTalesTooltip from "../shared/GlobeTalesTooltip";
+import GlobeTalesTooltip from "../shared/T-Tooltip";
 const ProfileCard = ({ user }: { user: TUser }) => {
   const [follow, { isError, isLoading }] = useFollowMutation();
   const [unfollow, { isLoading: isLoadingUnfollow }] = useUnFollowMutation();
