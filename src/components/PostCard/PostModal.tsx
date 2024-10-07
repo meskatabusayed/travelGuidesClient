@@ -14,7 +14,7 @@ import {
 import { useAppSelector } from "@/redux/hook";
 import { IComment } from "@/types/comment";
 import { IPost } from "@/types/post";
-import { MessageCircle } from "lucide-react";
+import { FaCommentDots } from "react-icons/fa";
 import React, { useState } from "react";
 import { toast } from "sonner";
 import CommentCard from "../commentCard/CommentCard";
@@ -118,7 +118,7 @@ const PostModal: React.FC<IPorps> = ({ post, trigger }) => {
           trigger
         ) : (
           <Button size={"sm"} variant="ghost">
-            <MessageCircle className="mr-1 h-4 w-4" />
+            <FaCommentDots className="mr-1 h-4 w-4" />
             Comments: {post.commentCount || 0}
           </Button>
         )}

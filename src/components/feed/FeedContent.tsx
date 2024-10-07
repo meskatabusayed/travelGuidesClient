@@ -35,14 +35,14 @@ const FeedContent = () => {
     }
   }, [data, dispatch]);
 
-  useEffect(() => {
+ /*  useEffect(() => {
     
     if (searchParams.get("page")) {
       router.push("/");
     }
-  }, []);
+  }, []); */
 
-  // Handler for loading the next page when the last post is in view
+
   const handleLoadMore = () => {
     if (!isFetching) {
       const params = new URLSearchParams(searchParams);

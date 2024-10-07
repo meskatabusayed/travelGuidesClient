@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 import { useVotePostMutation } from "@/redux/features/post/post.api";
 import { useAppSelector } from "@/redux/hook";
 import { IPost, TVoting } from "@/types/post";
-import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { AiFillLike , AiFillDislike } from "react-icons/ai";
 const VotePost = ({ post }: { post: IPost }) => {
   const [votePost] = useVotePostMutation();
 
@@ -51,7 +51,7 @@ const VotePost = ({ post }: { post: IPost }) => {
         }
         size="sm"
       >
-        <ChevronUp className="mr-1 h-4 w-4" />
+        <AiFillLike className="mr-1 h-4 w-4" />
         UPVOTE: {votes.upvotes?.length || 0}
       </Button>
       <Button
@@ -61,7 +61,7 @@ const VotePost = ({ post }: { post: IPost }) => {
         }
         onClick={() => handleVote("downvote")}
       >
-        <ChevronDown className="mr-1 h-4 w-4" />
+        <AiFillDislike className="mr-1 h-4 w-4" />
         DOWNVOTE: {votes.downvotes?.length || 0}
       </Button>
     </div>
