@@ -1,3 +1,4 @@
+"use client"
 import { LayoutDashboard, LogOut, Settings, User } from "lucide-react";
 
 import {
@@ -60,19 +61,15 @@ export function AccountPanel() {
               <span className="text-cyan-800">Profile</span>
             </DropdownMenuItem>
           </Link>
-          <Link href="/profile/settings">
-            <DropdownMenuItem className="cursor-pointer hover:bg-teal-100 transition-colors duration-200 px-4 py-2 rounded-md">
-              <Settings className="mr-2 h-4 w-4 text-blue-600" />
-              <span className="text-blue-800">Settings</span>
-            </DropdownMenuItem>
-          </Link>
+          
         </>
       )}
     </DropdownMenuGroup>
     <DropdownMenuSeparator className="h-[1px] bg-gray-300 mx-2 my-1" />
     <DropdownMenuItem onClick={handleLogout} className="cursor-pointer hover:bg-red-100 transition-colors duration-200 px-4 py-2 rounded-md">
+     <span className="text-red-800">Log out</span>
       <LogOut className="mr-2 h-4 w-4 text-red-600" />
-      <span className="text-red-800">Log out</span>
+      
     </DropdownMenuItem>
   </DropdownMenuContent>
 </DropdownMenu>

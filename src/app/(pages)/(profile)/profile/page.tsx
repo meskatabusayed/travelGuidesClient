@@ -32,7 +32,7 @@ const Profile = () => {
           className="w-[120px] h-[120px] rounded-full overflow-hidden bg-red-100 relative group/profile"
         >
           <Image
-            src={user?.image || "/images/avatar.jpg"}
+            src={user?.image || "https://i.ibb.co.com/rF33v54/avater.jpg"}
             width={120}
             height={120}
             alt="avatar"
@@ -44,15 +44,15 @@ const Profile = () => {
           </span>
         </Link>
         <h3 className="text-[20px] font-[600] mt-[20px]">
-          {user?.firstName} {user?.lastName}
+         Your Name : <span className="text-[#1877F2] font-bold "> {user?.firstName} {user?.lastName} </span>  
         </h3>
       </div>
       <p className="text-black font-bold text-lg mt-[20px]">
-        <span className="font-[600]">Email: </span> {user?.email}
+        <span className="font-[600]">Email: </span> <span className="text-[#1877F2]"> {user?.email} </span>
       </p>
       <p className="text-black font-bold text-lg mt-[8px]">
-        <span className="font-[600]">user since: </span>{" "}
-        {format(new Date(user?.createdAt || "12-30-2024"), "MMM dd, yyy")}
+        <span className="font-[600]">Your Joining Date : </span>{" "}
+        <span className="text-[#1877F2]">{format(new Date(user?.createdAt || "12-30-2024"), "MMM dd, yyy")}</span>
       </p>
       {!user.isPremium && user.role === "user" ? <PremiumAccess /> : <></>}
     </div>
