@@ -14,14 +14,9 @@ import { FiUser } from "react-icons/fi";
 import { HiOutlineUserGroup } from "react-icons/hi2";
 import { RiUserStarLine } from "react-icons/ri";
 import StatisticSkeleton from "../skeletons/StatisticSkeleton";
-import UserCountCard from "./UserCardCount";
+
 export const description = "An interactive bar chart";
-const chartConfig = {
-  value: {
-    label: "amount",
-    color: "hsl(var(--chart-3))",
-  },
-} satisfies ChartConfig;
+
 
 function UserStatistics() {
   const { data, isLoading } = useGetUserStatisticsQuery(undefined);
@@ -50,26 +45,32 @@ function UserStatistics() {
   }
 
   return (
-    <div className="w-full">
-      <Card className="w-full h-[347px]">
-        <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">
-          <div className="flex flex-1 flex-col justify-center gap-1 px-6 py-5 sm:py-6">
-            <CardTitle>User - Statistics</CardTitle>
-            <CardDescription>Showing statistics of all users</CardDescription>
+    <div className="w-full p-4">
+    <Card className="w-full h-[347px] rounded-lg shadow-lg bg-white border border-gray-200">
+      <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-t-lg">
+        <div className="flex flex-1 flex-col justify-center px-6 py-5 sm:py-6">
+          <CardTitle className="text-xl font-bold">User - Statistics</CardTitle>
+          <CardDescription className="text-sm opacity-90 text-white">
+            Showing statistics of all users
+          </CardDescription>
+        </div>
+      </CardHeader>
+  
+      <CardContent className="px-4 py-6 sm:p-6 flex gap-4 justify-between">
+        {result.map((item, index) => (
+          <div
+            key={index}
+            className="w-1/4 bg-gray-50 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center justify-center"
+          >
+            
+            <div className="text-xl mt-2">{item.name}</div>
+            <div className="text-3xl font-semibold mt-1">{item.value.toFixed(2)}</div>
           </div>
-        </CardHeader>
-        <CardContent className="px-2 sm:p-6 flex gap-[15px]">
-          {result.map((item, index) => (
-            <UserCountCard
-              key={index}
-              label={item.name}
-              value={item.value.toFixed(2)}
-              icon={item.icon}
-            />
-          ))}
-        </CardContent>
-      </Card>
-    </div>
+        ))}
+      </CardContent>
+    </Card>
+  </div>
+  
   );
 }
 

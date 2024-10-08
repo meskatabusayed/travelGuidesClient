@@ -92,7 +92,7 @@ const GetPremiumAccess = () => {
           </div>
           <div className="text-center">
             <p className="text-lg font-semibold">Premium Access Price</p>
-            <p className="text-3xl font-bold  text-[#1877F2]">400 BDT</p>
+            <p className="text-3xl font-bold  text-[#1877F2]">200 BDT</p>
             <Badge variant="secondary" className="mt-2">
               Cancel anytime
             </Badge>

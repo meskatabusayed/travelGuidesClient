@@ -1,6 +1,6 @@
 "use client";
 import ChangeUserRole from "@/components/manageUser/ChangeUserRole";
-import GlobeTalesTooltip from "@/components/shared/T-Tooltip";
+import AllTooltip from "@/components/shared/AllTooltip";
 import NoDataFound from "@/components/shared/NoDataFound";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -142,9 +142,9 @@ const ManageUserView = () => {
                     {pay_user.firstName} {pay_user.lastName}
                   </h1>
                   {pay_user.isPremium ? (
-                    <GlobeTalesTooltip message="Verified user">
-                      <BadgeCheck width={20} className="text-blue-500" />
-                    </GlobeTalesTooltip>
+                    <AllTooltip message="Verified user">
+                      <BadgeCheck width={20} className="text-[#1877F2]" />
+                    </AllTooltip>
                   ) : null}
                 </div>
                 <div className="text-sm text-gray-500">{pay_user.email}</div>

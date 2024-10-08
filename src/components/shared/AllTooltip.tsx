@@ -11,7 +11,7 @@ interface IProps {
   message: React.ReactNode;
 }
 
-const GlobeTalesTooltip: React.FC<IProps> = ({ children, message }) => {
+const AllTooltip: React.FC<IProps> = ({ children, message }) => {
   return (
     <TooltipProvider delayDuration={200}>
       <Tooltip>
@@ -22,4 +22,4 @@ const GlobeTalesTooltip: React.FC<IProps> = ({ children, message }) => {
   );
 };
 
-export default GlobeTalesTooltip;
+export default AllTooltip;
