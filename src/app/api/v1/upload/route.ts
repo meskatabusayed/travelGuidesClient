@@ -5,9 +5,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { Readable } from "stream";
 
 cloudinary.config({
-  cloud_name: "dqgynvtyz",
-  api_key: "876815732896856",
-  api_secret: "K0PGH2_YoSwYOxZkjBuOuzCQaos",
+  cloud_name: "dwehbmfy5",
+  api_key: "514945648111989",
+  api_secret: "TqcsTXDjrG97dk4B-WyvWYqq6GQ",
 });
 
 export const POST = async (req: NextRequest) => {

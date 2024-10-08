@@ -49,36 +49,37 @@ const DeleteCategory: React.FC<IProps> = ({ id }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild>
-        <Button variant="destructive" size="sm">
-          <Trash2 className="h-4 w-4" />
-          <span className="sr-only">Delete</span>
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <AlertTriangle className="h-5 w-5 text-red-500" />
-            Confirm Deletion
-          </DialogTitle>
-          <DialogDescription>
-            Are you sure you want to delete this Post? This action cannot be
-            undone.
-          </DialogDescription>
-        </DialogHeader>
+  <DialogTrigger asChild>
+    <Button variant="destructive" size="sm" className="bg-red-600 hover:bg-red-700 text-white shadow-md transition-all duration-200">
+      <Trash2 className="h-4 w-4" />
+      <span className="sr-only">Delete</span>
+    </Button>
+  </DialogTrigger>
 
-        <DialogFooter className="mt-6">
-          <Button variant="destructive" onClick={handleDeletePost}>
-            Delete
-          </Button>
-          <DialogClose asChild>
-            <Button variant="outline" id="cancel_post_dialog">
-              Cancel
-            </Button>
-          </DialogClose>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+  <DialogContent className="sm:max-w-[425px] bg-white rounded-lg shadow-lg p-6">
+    <DialogHeader>
+      <DialogTitle className="flex items-center gap-2 text-xl font-bold text-gray-800">
+        <AlertTriangle className="h-5 w-5 text-red-500" />
+        Confirm Deletion
+      </DialogTitle>
+      <DialogDescription className="text-gray-600">
+        Are you sure you want to delete it?
+      </DialogDescription>
+    </DialogHeader>
+
+    <DialogFooter className="mt-6 flex justify-between">
+      <Button variant="destructive" onClick={handleDeletePost} className="bg-red-600 hover:bg-red-700 text-white shadow-md transition-all duration-200">
+        Delete
+      </Button>
+      <DialogClose asChild>
+        <Button variant="outline" id="cancel_post_dialog" className="text-gray-600 border-gray-300 hover:bg-gray-100 transition-all duration-200">
+          Cancel
+        </Button>
+      </DialogClose>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+
   );
 };
 

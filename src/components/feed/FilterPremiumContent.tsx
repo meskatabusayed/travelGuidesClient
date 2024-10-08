@@ -32,17 +32,29 @@ const FilterPremiumContent = () => {
 
   return (
     <div
-      className="relative w-[200px] group/premium cursor-pointer"
-      onClick={handleSetPremium}
-    >
-      <div className="p-[3px] bg-primaryMat relative overflow-hidden flex items-center w-full h-[40px] rounded-[8px] z-20">
-        <div className="px-[5px] w-full h-full relative z-20 rounded-[5px] flex items-center gap-[20px]">
-          <span className="text-white  font-[600]">Premium Only</span>
-          <Switch checked={isPremium} className="bg-white" />
-        </div>
-        {/* <div className="absolute top-0 left-0 position_center w-[220px] h-[220px] avatarGradient z-10 origin-center"></div> */}
-      </div>
+  className="relative w-[220px] group/premium cursor-pointer"
+  onClick={handleSetPremium}
+>
+  <div className="p-[3px] bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 relative overflow-hidden flex items-center w-full h-[45px] rounded-[12px] shadow-lg transition-all duration-300 ease-in-out hover:scale-105">
+    <div className="px-[8px] w-full h-full relative z-20 rounded-[8px] flex items-center justify-between gap-[15px] bg-white">
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500 font-bold text-lg">
+        Premium Only
+      </span>
+      <Switch
+  checked={isPremium}
+  className={`relative w-[40px] h-[20px] rounded-full transition-colors duration-300 ease-in-out cursor-pointer 
+              ${isPremium ? "bg-green-500" : "bg-gray-300"}`}
+>
+  <span
+    className={`absolute top-1 left-1 w-[18px] h-[18px] rounded-full transition-transform duration-300 ease-in-out 
+                ${isPremium ? "transform translate-x-[20px] bg-white shadow-md" : "bg-white"}`}
+  />
+</Switch>
+
     </div>
+  </div>
+</div>
+
   );
 };
 
