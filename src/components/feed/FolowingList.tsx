@@ -56,9 +56,7 @@ const FolowingList = ({ heading = true }: { heading?: boolean }) => {
       {data?.data && data?.data?.length < 1 ? (
         <div>
           <p className="text-center text-[17px] font-[700]">No Following</p>
-          <p className="text-center text-[14px]">
-            Explore more content on news feed and follow other to get connected
-          </p>
+          
         </div>
       ) : (
         ""

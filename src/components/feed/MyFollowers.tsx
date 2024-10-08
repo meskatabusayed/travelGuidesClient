@@ -39,9 +39,7 @@ const MyFollowers = ({ heading = true }: { heading?: boolean }) => {
       {data?.data && data?.data?.length < 1 ? (
         <div>
           <p className="text-center text-[17px] font-[700]">No Follower</p>
-          <p className="text-center text-[14px]">
-            Upload your adventure post on newsfeed reach more followers
-          </p>
+          
         </div>
       ) : (
         ""
