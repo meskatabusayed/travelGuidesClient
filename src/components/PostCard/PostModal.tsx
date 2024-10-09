@@ -51,13 +51,13 @@ const PostModal: React.FC<IPorps> = ({ post, trigger }) => {
       page,
     },
     {
-      skip: !open, // Skip fetching when the dialog is not open
+      skip: !open, 
     }
   );
 
   const [createComment] = useCreateCommentMutation();
 
-  // Handle new comment creation
+  
   const handleComment = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -113,60 +113,66 @@ const PostModal: React.FC<IPorps> = ({ post, trigger }) => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        {trigger ? (
-          trigger
-        ) : (
-          <Button size={"sm"} variant="ghost">
-            <FaCommentDots className="mr-1 h-4 w-4" />
-            Comments: {post.commentCount || 0}
-          </Button>
-        )}
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[850px] px-[10px]">
-        <div className=" h-[80vh] overflow-auto smoothBar w-full">
-          <DialogHeader></DialogHeader>
-          <Card>
-            <PostContent post={post} />
-          </Card>
-          <Separator />
-          <VotePost post={post} />
-          <form className="my-6" onSubmit={handleComment}>
-            <div className="flex items-start space-x-3">
-              <Avatar className="w-8 h-8">
-                <AvatarImage alt="Your Avatar" src="/placeholder-user.jpg" />
-                <AvatarFallback>YA</AvatarFallback>
-              </Avatar>
-              <div className="flex-1">
-                <Textarea
-                  placeholder="Write a comment..."
-                  name="comment"
-                  className="w-full min-h-[80px] "
-                  required
-                  onFocus={(e) => {
-                    if (!user) {
-                      toast.error("Please login to comment");
-                      e.target.blur();
-                      return;
-                    }
-                  }}
-                />
-                <Button type="submit" className="mt-2 bg-[#1877F2]">
-                   Comment
-                </Button>
-              </div>
-            </div>
-          </form>
-
-          <h3>{data?.totalDoc || 0} Comments:</h3>
-          {data?.data?.map((comment, i) => (
-            <CommentCard setPage={setPage} comment={comment} key={i} />
-          ))}
-
-          
+  <DialogTrigger asChild>
+    {trigger ? (
+      trigger
+    ) : (
+      <Button size={"sm"} variant="ghost" className="flex items-center bg-[#FF6F61] text-white hover:bg-[#FF4A4A] transition-colors">
+        <FaCommentDots className="mr-1 h-4 w-4" />
+        Comments: {post.commentCount || 0}
+      </Button>
+    )}
+  </DialogTrigger>
+  
+  <DialogContent className="sm:max-w-[850px] px-4 py-6 bg-[#F9F9F9] rounded-lg shadow-lg">
+    <div className="h-[80vh] overflow-auto smoothBar w-full">
+      <DialogHeader>
+        <h2 className="text-lg font-bold text-[#FF6F61]">Comments</h2>
+      </DialogHeader>
+      
+      <Card className="my-4 shadow-md border border-[#E5E5E5] rounded-lg p-4 bg-white">
+        <PostContent post={post} />
+      </Card>
+      
+      <Separator className="my-4" />
+      
+      <VotePost post={post} />
+      
+      <form className="my-6" onSubmit={handleComment}>
+        <div className="flex items-start space-x-3">
+          <Avatar className="w-10 h-10">
+            <AvatarImage alt="Your Avatar" src="/placeholder-user.jpg" />
+            <AvatarFallback className="bg-[#FF6F61] text-white">YA</AvatarFallback>
+          </Avatar>
+          <div className="flex-1">
+            <Textarea
+              placeholder="Write a comment..."
+              name="comment"
+              className="w-full min-h-[80px] border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#FF6F61] transition-colors"
+              required
+              onFocus={(e) => {
+                if (!user) {
+                  toast.error("Please login to comment");
+                  e.target.blur();
+                  return;
+                }
+              }}
+            />
+            <Button type="submit" className="mt-2 bg-[#1877F2] text-white hover:bg-[#0E5BB5] transition-colors">
+              Comment
+            </Button>
+          </div>
         </div>
-      </DialogContent>
-    </Dialog>
+      </form>
+
+      <h3 className="text-lg font-bold text-[#333333]">{data?.totalDoc || 0} Comments:</h3>
+      {data?.data?.map((comment, i) => (
+        <CommentCard setPage={setPage} comment={comment} key={i} />
+      ))}
+    </div>
+  </DialogContent>
+</Dialog>
+
   );
 };
 

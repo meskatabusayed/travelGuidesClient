@@ -43,28 +43,35 @@ const VotePost = ({ post }: { post: IPost }) => {
     await votePost({ postId: post._id, vote });
   };
   return (
-    <div className="flex items-center space-x-2">
-      <Button
-        onClick={() => handleVote("upvote")}
-        variant={
-          votes.upvotes.includes(user?._id || "") ? "secondary" : "ghost"
-        }
-        size="sm"
-      >
-        <AiFillLike className="mr-1 h-4 w-4" />
-        UPVOTE: {votes.upvotes?.length || 0}
-      </Button>
-      <Button
-        size="sm"
-        variant={
-          votes.downvotes.includes(user?._id || "") ? "secondary" : "ghost"
-        }
-        onClick={() => handleVote("downvote")}
-      >
-        <AiFillDislike className="mr-1 h-4 w-4" />
-        DOWNVOTE: {votes.downvotes?.length || 0}
-      </Button>
-    </div>
+    <div className="flex items-center space-x-4">
+  <Button
+    onClick={() => handleVote("upvote")}
+    variant={
+      votes.upvotes.includes(user?._id || "") ? "secondary" : "ghost"
+    }
+    size="sm"
+    className={`flex items-center space-x-1 transition duration-300 ${
+      votes.upvotes.includes(user?._id || "") ? "bg-green-600 text-white" : "bg-white text-green-600 border border-green-600 hover:bg-green-100"
+    }`}
+  >
+    <AiFillLike className="h-4 w-4" />
+    <span>UPVOTE: {votes.upvotes?.length || 0}</span>
+  </Button>
+  <Button
+    size="sm"
+    variant={
+      votes.downvotes.includes(user?._id || "") ? "secondary" : "ghost"
+    }
+    onClick={() => handleVote("downvote")}
+    className={`flex items-center space-x-1 transition duration-300 ${
+      votes.downvotes.includes(user?._id || "") ? "bg-red-600 text-white" : "bg-white text-red-600 border border-red-600 hover:bg-red-100"
+    }`}
+  >
+    <AiFillDislike className="h-4 w-4" />
+    <span>DOWNVOTE: {votes.downvotes?.length || 0}</span>
+  </Button>
+</div>
+
   );
 };
 

@@ -52,41 +52,44 @@ const CommentUpdate: React.FC<IPorps> = ({ comment, setPage }) => {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <button className="hover:underline text-[12px]">Edit</button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[550px]">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <Edit2 className="h-5 w-5 text-blue-500" />
-            Edit Comment
-          </DialogTitle>
-          <DialogDescription>
-            Make changes to your comment below. Click update when you&apos;re
-            done.
-          </DialogDescription>
-        </DialogHeader>
-        <form onSubmit={handleUpdateComment} className="mt-4">
-          <Textarea
-            defaultValue={commentText}
-            placeholder="Edit your comment here..."
-            className="min-h-[100px]"
-            name="comment"
-            required
-          />
-          <Button type="submit" className="mt-[20px]">
-            Update
-          </Button>
-        </form>
-        <DialogFooter className="mt-6">
-          <DialogClose asChild>
-            <Button variant="outline" id="cancel_comment_update_dialog">
-              Cancel
-            </Button>
-          </DialogClose>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+  <DialogTrigger asChild>
+    <button className="hover:underline text-[#007BFF] text-[12px] font-semibold">Edit</button>
+  </DialogTrigger>
+  
+  <DialogContent className="sm:max-w-[550px] p-6 bg-white rounded-lg shadow-lg">
+    <DialogHeader>
+      <DialogTitle className="flex items-center gap-2 text-[#007BFF] font-bold">
+        <Edit2 className="h-5 w-5 text-blue-500" />
+        Edit Comment
+      </DialogTitle>
+      <DialogDescription className="text-gray-700">
+        Make changes to your comment below. Click update when you&apos;re done.
+      </DialogDescription>
+    </DialogHeader>
+    
+    <form onSubmit={handleUpdateComment} className="mt-4">
+      <Textarea
+        defaultValue={commentText}
+        placeholder="Edit your comment here..."
+        className="min-h-[100px] border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+        name="comment"
+        required
+      />
+      <Button type="submit" className="mt-4 bg-[#007BFF] text-white hover:bg-[#0056b3] transition-colors">
+        Update
+      </Button>
+    </form>
+    
+    <DialogFooter className="mt-6 flex justify-between">
+      <DialogClose asChild>
+        <Button variant="outline" className="text-[#007BFF] border-[#007BFF] hover:bg-[#007BFF] hover:text-white transition-colors" id="cancel_comment_update_dialog">
+          Cancel
+        </Button>
+      </DialogClose>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+
   );
 };
 

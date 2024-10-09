@@ -48,39 +48,39 @@ const CommentDelete: React.FC<IPorps> = ({ comment, setPage }) => {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <button className="hover:underline text-[12px]">Delete</button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <AlertTriangle className="h-5 w-5 text-red-500" />
-            Confirm Deletion
-          </DialogTitle>
-          <DialogDescription>
-            Are you sure you want to delete this comment? This action cannot be
-            undone.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="mt-4 rounded-md bg-muted p-4">
-          <p className="text-sm text-muted-foreground">
-            {commentText.length > 100
-              ? `${commentText.slice(0, 100)}...`
-              : commentText}
-          </p>
-        </div>
-        <DialogFooter className="mt-6">
-          <Button variant="destructive" onClick={handleDeleteComment}>
-            Delete
-          </Button>
-          <DialogClose asChild>
-            <Button variant="outline" id="cancel_comment_dialog">
-              Cancel
-            </Button>
-          </DialogClose>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+  <DialogTrigger asChild>
+    <button className="hover:underline text-[#FF6F61] text-[12px] font-semibold">Delete</button>
+  </DialogTrigger>
+  <DialogContent className="sm:max-w-[425px] p-4 bg-[#FFFFFF] shadow-lg rounded-lg">
+    <DialogHeader>
+      <DialogTitle className="flex items-center gap-2 text-[#FF6F61] font-bold">
+        <AlertTriangle className="h-5 w-5 text-red-500" />
+        Confirm Deletion
+      </DialogTitle>
+      <DialogDescription className="text-gray-700">
+        Are you sure you want to delete this comment?
+      </DialogDescription>
+    </DialogHeader>
+    <div className="mt-4 rounded-md bg-[#FFEDD5] p-4">
+      <p className="text-sm text-[#333]">
+        {commentText.length > 100
+          ? `${commentText.slice(0, 100)}...`
+          : commentText}
+      </p>
+    </div>
+    <DialogFooter className="mt-6 flex justify-between">
+      <Button variant="destructive" className="bg-red-600 text-white hover:bg-red-700" onClick={handleDeleteComment}>
+        Delete
+      </Button>
+      <DialogClose asChild>
+        <Button variant="outline" className="text-[#FF6F61] border-[#FF6F61] hover:bg-[#FF6F61] hover:text-white" id="cancel_comment_dialog">
+          Cancel
+        </Button>
+      </DialogClose>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+
   );
 };
 

@@ -70,7 +70,7 @@ const CategoryFilterBox = () => {
     }
 
     handleCategoryChange(id);
-    setIsFocused(false); // Close suggestions after selection
+    setIsFocused(false); 
   };
 
   const handleClickOutside = (e: MouseEvent) => {
@@ -80,7 +80,7 @@ const CategoryFilterBox = () => {
       suggestionRef.current &&
       !suggestionRef.current.contains(e.target as Node)
     ) {
-      setIsFocused(false); // Click outside of input and suggestion list
+      setIsFocused(false); 
     }
   };
 

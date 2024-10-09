@@ -34,50 +34,55 @@ const PostOptions = ({ post }: { post: IPost }) => {
   return (
     <>
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size={"icon"}>
-            <EllipsisVertical width={15} />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56">
-          <DropdownMenuLabel>Options</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup>
-            <DropdownMenuItem
-              onClick={handleShare}
-              className="flex items-center gap-[5px]"
-            >
-              <Share2 width={15} />
-              Share
-            </DropdownMenuItem>
+  <DropdownMenuTrigger asChild>
+    <Button variant="ghost" size="icon" className="hover:bg-gray-100 transition duration-200">
+      <EllipsisVertical width={15} className="text-gray-600" />
+    </Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent className="w-56 bg-white shadow-lg rounded-lg border border-gray-200">
+    <DropdownMenuLabel className="font-bold text-lg text-gray-800 p-2">Options</DropdownMenuLabel>
+    <DropdownMenuSeparator className="bg-gray-200" />
+    <DropdownMenuGroup>
+      <DropdownMenuItem
+        onClick={handleShare}
+        className="flex items-center gap-[5px] p-2 hover:bg-blue-100 transition-colors rounded-md"
+      >
+        <Share2 width={15} className="text-blue-600" />
+        <span className="text-gray-800">Share</span>
+      </DropdownMenuItem>
 
-            <Link href={`/post/${post._id}`}>
-              <DropdownMenuItem className="flex items-center gap-[5px]">
-                <Eye width={15} /> View Post
-              </DropdownMenuItem>
-            </Link>
-            <DownloadPdf id={post._id} />
-            {isAuthor ? (
-              <>
-                <DropdownMenuItem
-                  className="flex items-center gap-[5px]"
-                  onClick={() => setOpenDeleteModal(true)}
-                >
-                  <Trash width={15} />
-                  Delete
-                </DropdownMenuItem>
-              </>
-            ) : (
-              ""
-            )}
-          </DropdownMenuGroup>
-        </DropdownMenuContent>
-      </DropdownMenu>
-      <DeletePost
-        id={post._id}
-        isOpen={openDeleteModal}
-        setIsOpen={setOpenDeleteModal}
-      />
+      <Link href={`/post/${post._id}`} passHref>
+        <DropdownMenuItem className="flex items-center gap-[5px] p-2 hover:bg-green-100 transition-colors rounded-md">
+          <Eye width={15} className="text-green-600" />
+          <span className="text-gray-800">View Post</span>
+        </DropdownMenuItem>
+      </Link>
+
+      <DropdownMenuItem className="flex items-center gap-[5px] p-2 hover:bg-yellow-100 transition-colors rounded-md">
+        <DownloadPdf id={post._id} />
+        <span className="text-gray-800"></span>
+      </DropdownMenuItem>
+
+      {isAuthor && (
+  <DropdownMenuItem
+    className="flex items-center gap-2 p-2 rounded-md transition-all duration-200 hover:bg-red-50 hover:text-red-600 focus:bg-red-50 focus:text-red-600"
+    onClick={() => setOpenDeleteModal(true)}
+  >
+    <Trash width={15} className="text-red-500 transition-colors duration-200 group-hover:text-red-700" />
+    <span className="text-gray-700 group-hover:text-red-700 font-semibold">
+      Delete
+    </span>
+  </DropdownMenuItem>
+)}
+    </DropdownMenuGroup>
+  </DropdownMenuContent>
+</DropdownMenu>
+<DeletePost
+  id={post._id}
+  isOpen={openDeleteModal}
+  setIsOpen={setOpenDeleteModal}
+/>
+
     </>
   );
 };

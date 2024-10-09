@@ -76,7 +76,7 @@ function PaymentStatistics() {
   return (
     <div className="w-full p-4 bg-gray-100 min-h-screen flex items-center justify-center">
   <Card className="w-full max-w-4xl rounded-lg shadow-lg bg-white">
-    {/* Card Header */}
+    
     <CardHeader className="flex flex-col items-stretch border-b bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-t-lg sm:flex-row sm:items-center sm:justify-between">
       <div className="flex flex-1 flex-col justify-center gap-1">
         <div className="flex items-center justify-between w-full">
@@ -94,14 +94,14 @@ function PaymentStatistics() {
       </div>
     </CardHeader>
 
-    {/* Card Content */}
+   
     <CardContent className="p-6 bg-white rounded-b-lg">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold text-gray-700">Yearly Payment Breakdown</h3>
         <span className="text-sm text-gray-500">Updated: {new Date().toLocaleDateString()}</span>
       </div>
 
-      {/* Chart */}
+      
       <ChartContainer
         config={chartConfig}
         className="bg-gray-50 rounded-lg shadow-inner p-4"

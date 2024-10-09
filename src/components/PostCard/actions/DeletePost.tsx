@@ -50,31 +50,39 @@ const DeletePost: React.FC<IProps> = ({ id, isOpen, setIsOpen }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild></DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <AlertTriangle className="h-5 w-5 text-red-500" />
-            Confirm Deletion
-          </DialogTitle>
-          <DialogDescription>
-            Are you sure you want to delete this Post? This action cannot be
-            undone.
-          </DialogDescription>
-        </DialogHeader>
+  <DialogTrigger asChild></DialogTrigger>
+  <DialogContent className="sm:max-w-[425px] p-6 rounded-lg shadow-xl bg-gradient-to-r from-red-100 via-white to-red-50">
+    <DialogHeader>
+      <DialogTitle className="flex items-center gap-2 text-red-600 font-bold text-xl">
+        <AlertTriangle className="h-6 w-6 text-red-600" />
+        Confirm Deletion
+      </DialogTitle>
+      <DialogDescription className="text-gray-700 mt-2 text-sm">
+        Are you sure you want to delete this post? This action cannot be undone.
+      </DialogDescription>
+    </DialogHeader>
 
-        <DialogFooter className="mt-6">
-          <Button variant="destructive" onClick={handleDeletePost}>
-            Delete
-          </Button>
-          <DialogClose asChild>
-            <Button variant="outline" id="cancel_post_dialog">
-              Cancel
-            </Button>
-          </DialogClose>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+    <DialogFooter className="mt-6 flex justify-between">
+      <Button
+        variant="destructive"
+        className="px-6 py-2 text-white bg-red-600 hover:bg-red-700 transition-colors duration-200 ease-in-out rounded-md shadow-sm"
+        onClick={handleDeletePost}
+      >
+        Delete
+      </Button>
+      <DialogClose asChild>
+        <Button
+          variant="outline"
+          className="px-6 py-2 text-red-600 border border-red-600 hover:bg-red-600 hover:text-white transition-colors duration-200 ease-in-out rounded-md"
+          id="cancel_post_dialog"
+        >
+          Cancel
+        </Button>
+      </DialogClose>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+
   );
 };
 

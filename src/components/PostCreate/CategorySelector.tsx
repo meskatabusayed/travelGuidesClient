@@ -1,5 +1,5 @@
 "use client";
-// import useDebounce from "@/hooks/debounce";
+
 import { useGetAllCategoriesQuery} from "@/redux/features/category/category.api";
 import { ICategories } from "@/types/category";
 import { useEffect, useRef, useState } from "react";
@@ -11,7 +11,7 @@ interface IPorps {
 
 const CategorySelector: React.FC<IPorps> = ({ onChange }) => {
   const [value, setValue] = useState<string>("");
-  // const debouncevalue = useDebounce(value, 500);
+
   const [selectedCategories, setSelectedCategories] = useState<ICategories[]>(
     []
   );
@@ -20,9 +20,7 @@ const CategorySelector: React.FC<IPorps> = ({ onChange }) => {
   const ref = useRef<HTMLInputElement | null>(null);
   const suggestionRef = useRef<HTMLDivElement | null>(null);
 
-  // const { data } = useGetCategoriesByNameQuery(debouncevalue, {
-  //   skip: !debouncevalue,
-  // });
+  
   const { data } = useGetAllCategoriesQuery({ limit: 6 });
   console.log("26" , data);
 
@@ -33,7 +31,7 @@ const CategorySelector: React.FC<IPorps> = ({ onChange }) => {
       suggestionRef.current &&
       !suggestionRef.current.contains(e.target as Node)
     ) {
-      setIsFocused(false); // Click outside of input and suggestion list
+      setIsFocused(false); 
     }
   };
 

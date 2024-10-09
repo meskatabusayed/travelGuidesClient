@@ -30,7 +30,7 @@ const ManageUserView = () => {
 
   return (
     <div className="w-full p-8 bg-gradient-to-br from-gray-50 to-white rounded-lg shadow-md">
-      {/* Header Section */}
+      
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-800">User Management</h1>
         <p className="text-lg text-gray-500">
@@ -38,7 +38,7 @@ const ManageUserView = () => {
         </p>
       </div>
 
-      {/* Search Section */}
+    
       <div className="w-full flex flex-col md:flex-row items-center justify-between mb-10 gap-6">
         <form
           className="flex w-full md:w-[350px] border-b border-gray-300"
