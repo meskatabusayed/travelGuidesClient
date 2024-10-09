@@ -105,100 +105,116 @@ export default function CreatePostModal() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button
-          variant="outline"
-          className="w-full mb-4 bg-[#1877F2] text-white"
-        >
-          <PlusCircle className="mr-2 h-4 w-4" />
-          Create Your Post
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[625px] max-h-[80vh] overflow-auto smoothBar">
-        <DialogHeader>
-          <DialogTitle>Create Post</DialogTitle>
+    <DialogTrigger asChild>
+      <Button
+        variant="outline"
+        className="w-full mb-4 bg-gradient-to-r from-[#4c6ef5] to-[#1877F2] text-white rounded-lg shadow-md hover:from-[#3b5bfd] hover:to-[#2851F2] transition-all duration-300"
+      >
+        <PlusCircle className="mr-2 h-5 w-5" />
+        Create Your Post
+      </Button>
+    </DialogTrigger>
+    
+    <DialogContent className="sm:max-w-[625px] max-h-[80vh] overflow-auto smoothBar bg-gradient-to-r from-[#ffffff] to-[#f7faff] shadow-2xl rounded-lg p-6">
+      <DialogHeader className="mb-4">
+        <DialogTitle className="text-2xl font-semibold text-[#1877F2]">Create Post</DialogTitle>
+      </DialogHeader>
+  
+      <PrimeReactProvider>
+        <div className="space-y-5 flex flex-col w-full gap-[15px]">
           
-        </DialogHeader>
-
-        <PrimeReactProvider>
-          <div className="space-y-4 overflow-auto flex flex-col w-full gap-[15px]">
-            <div className="flex flex-col gap-[10px]">
-              <Label htmlFor="content">Your Travel Story</Label>
-              <Editor
-                value={content}
-                style={{ height: "200px" }}
-                onTextChange={(e) => setContent(e.htmlValue || "")}
-              />
-            </div>
-            <CategorySelector
-              onChange={(values) => {
-                const value = values.map((item) => item._id);
-                setCategories(value);
-              }}
-            /> 
-            <div className="flex flex-col gap-[10px]">
-              <Label htmlFor="images">Attach Images</Label>
-              <div className="flex items-center gap-[10px]">
-                {images.map((image, index) => (
-                  <Image
-                    key={index}
-                    src={image}
-                    alt="image"
-                    width={90}
-                    height={90}
-                    className="w-[90px] h-[90px] object-cover rounded-md"
-                  />
-                ))}
-                {images.length < 4 && (
-                  <>
-                    <Input
-                      id="images"
-                      type="file"
-                      accept="image/*"
-                      multiple
-                      onChange={handleImageUpload}
-                      className="hidden"
-                    />
-                    <Label
-                      htmlFor="images"
-                      className="flex items-center flex-col justify-center w-[90px] h-[90px] px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer relative"
-                    >
-                      <Upload className="w-5 h-5 mr-2" />
-                      Upload Images
-                      {imageLoading && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-opacity-50 w-full h-full center bg-[#0000003d]">
-                          <ImSpinner2 className="animate-spin" />
-                        </div>
-                      )}
-                    </Label>
-                  </>
-                )}
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center  gap-[10px]">
-                <Switch
-                  id="premium"
-                  disabled={!user?.isPremium}
-                  checked={isPremium}
-                  onCheckedChange={setIsPremium}
+         
+          <div className="flex flex-col gap-3">
+            <Label htmlFor="content" className="text-lg text-[#4c6ef5] font-medium">Your Travel Story</Label>
+            <Editor
+              value={content}
+              style={{ height: "200px", borderRadius: "10px", border: "1px solid #1877F2", padding: "10px" }}
+              onTextChange={(e) => setContent(e.htmlValue || "")}
+              className="shadow-inner"
+            />
+          </div>
+          
+         <div className="border-[2px] border-[#4c6ef5] rounded-md shadow-md p-2">
+          <CategorySelector
+            onChange={(values) => {
+              const value = values.map((item) => item._id);
+              setCategories(value);
+            }}
+            
+          />
+          </div>
+  
+         
+          <div className="flex flex-col gap-3">
+            <Label htmlFor="images" className="text-lg text-[#4c6ef5] font-medium">Attach Images</Label>
+            <div className="flex items-center gap-4">
+              {images.map((image, index) => (
+                <Image
+                  key={index}
+                  src={image}
+                  alt="image"
+                  width={90}
+                  height={90}
+                  className="w-[90px] h-[90px] object-cover rounded-lg shadow-md"
                 />
-                <Label htmlFor="premium">Mark as Premium Content</Label>
-              </div>
-              {!user?.isPremium && (
-                <span className="text-[12px] ">
-                  * This can be accessed only by verified users
-                </span>
+              ))}
+              {images.length < 4 && (
+                <>
+                  <Input
+                    id="images"
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={handleImageUpload}
+                    className="hidden"
+                  />
+                  <Label
+                    htmlFor="images"
+                    className="flex items-center flex-col justify-center w-[90px] h-[90px] px-4 py-2 text-sm font-medium text-gray-700 bg-[#f7faff] border-2 border-[#4c6ef5] rounded-lg shadow-md hover:bg-[#e0e7ff] cursor-pointer transition-all relative"
+                  >
+                    <Upload className="w-5 h-5" />
+                    Upload
+                    {imageLoading && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-opacity-50 w-full h-full bg-[#0000003d]">
+                        <ImSpinner2 className="animate-spin" />
+                      </div>
+                    )}
+                  </Label>
+                </>
               )}
             </div>
-            <Button type="submit" className="w-full bg-[#1877F2]" onClick={handleSubmit}>
-              Create Post
-            </Button>
           </div>
-        </PrimeReactProvider>
-
-        
-      </DialogContent>
-    </Dialog>
+  
+          <div>
+            <div className="flex items-center gap-4">
+              <Switch
+                id="premium"
+                disabled={!user?.isPremium}
+                checked={isPremium}
+                onCheckedChange={setIsPremium}
+                className="bg-[#1877F2] shadow-md"
+              />
+              <Label htmlFor="premium" className="text-md text-[#4c6ef5]">Mark as Premium Content</Label>
+            </div>
+            {!user?.isPremium && (
+              <span className="text-sm text-red-500">
+                * This can be accessed only by verified users
+              </span>
+            )}
+          </div>
+  
+          
+          <Button
+            type="submit"
+            className="w-full bg-gradient-to-r from-[#4c6ef5] to-[#1877F2] text-white rounded-lg shadow-lg hover:from-[#3b5bfd] hover:to-[#2851F2] transition-all duration-300"
+            onClick={handleSubmit}
+          >
+            Create Post
+          </Button>
+        </div>
+      </PrimeReactProvider>
+    </DialogContent>
+  </Dialog>
+  
   );
 }

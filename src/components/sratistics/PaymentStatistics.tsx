@@ -101,7 +101,7 @@ function PaymentStatistics() {
         <span className="text-sm text-gray-500">Updated: {new Date().toLocaleDateString()}</span>
       </div>
 
-      
+     
       <ChartContainer
         config={chartConfig}
         className="bg-gray-50 rounded-lg shadow-inner p-4"

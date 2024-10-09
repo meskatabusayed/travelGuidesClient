@@ -143,6 +143,15 @@ const Login = () => {
           Sign Up here
         </Link>
       </p>
+      <p className="text-gray-600">
+        Forgot Password?{" "}
+        <Link
+          href="/login"
+          className="text-purple-600 font-semibold hover:underline"
+        >
+          Click Here
+        </Link>
+      </p>
     </div>
   </div>
 </div>

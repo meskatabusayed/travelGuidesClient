@@ -21,7 +21,7 @@ const baseQuery = fetchBaseQuery({
     }
     return headers;
   },
-  // credentials: 'include',
+  
 });
 
 const baseQueryWithRefreshToken: BaseQueryFn<
