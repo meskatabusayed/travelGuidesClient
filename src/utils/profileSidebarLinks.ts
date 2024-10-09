@@ -1,6 +1,6 @@
 import { CiUser } from "react-icons/ci";
 import {
-  
+  RiLockPasswordLine,
   RiUserFollowLine,
   RiUserSettingsLine,
 } from "react-icons/ri";
@@ -15,6 +15,11 @@ export const userProfileLinks = [
     href: "/profile/settings",
     label: "Account setting",
     Icon: RiUserSettingsLine,
+  },
+  {
+    href: "/profile/update-password",
+    label: "Security",
+    Icon: RiLockPasswordLine,
   },
   
   {

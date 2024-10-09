@@ -10,6 +10,8 @@ import { Input } from "../ui/input";
 
 import FilterPremiumContent from "./FilterPremiumContent";
 import SortPost from "./SortPost";
+import CategoryFilterBox from "./CategoryFilterBox";
+
 
 const FilterBar = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -48,6 +50,11 @@ const FilterBar = () => {
       <h3 className="text-2xl font-semibold text-[#F1C40F]">Sort Posts</h3>
       <SortPost />
     </div>
+    <div className="flex-1 md:w-[300px] flex flex-col gap-4">
+      <h3 className="text-2xl font-semibold text-[#F1C40F]">Sort Posts</h3>
+      <CategoryFilterBox />
+    </div>
+    
 
     
     <div className="flex-1 md:w-[300px] flex flex-col gap-4">

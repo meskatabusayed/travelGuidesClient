@@ -21,7 +21,7 @@ const CategoryFilterBox = () => {
   const debouncevalue = useDebounce(searchValue, 500);
   const [isFocused, setIsFocused] = useState(false);
   const ref = useRef<HTMLInputElement | null>(null);
-  const suggestionRef = useRef<HTMLUListElement | null>(null); // Ref for the suggestion list
+  const suggestionRef = useRef<HTMLUListElement | null>(null); 
 
   const { data: sudgestion } = useGetCategoriesByNameQuery(debouncevalue, {
     skip: !isFocused,
@@ -92,45 +92,56 @@ const CategoryFilterBox = () => {
   }, []);
 
   return (
-    <div className="">
-      <h3 className="mb-2 text-lg font-medium">Categories</h3>
-      <div className="px-[10px] border-[1px] border-borderColor rounded-[5px] w-full h-[40px] mb-[20px] relative">
-        <input
-          className="border-0 border-transparent outline-none w-full h-full"
-          placeholder="search category"
-          ref={ref}
-          onFocus={() => setIsFocused(true)}
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
-        {sudgestion?.data && sudgestion?.data.length > 0 && isFocused && (
-          <Card className="absolute left-0 top-[40px] z-10 w-full mt-1 overflow-auto">
-            <ul className="py-2" ref={suggestionRef}>
-              {sudgestion.data.map(({ label, _id }) => (
-                <li
-                  key={_id}
-                  onClick={() => handleSlecteCategory(_id)}
-                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-[10px]"
-                >
-                  <SquareCheck width={13} className="text-primary" /> {label}
-                </li>
-              ))}
-            </ul>
-          </Card>
-        )}
-      </div>
-      <div className="space-y-2">
-        {data?.data.map(({ label, _id }, i) => (
-          <div
-            onClick={() => handleCategoryChange(_id)}
-            className="flex items-center select-none cursor-pointer"
-            key={_id + "category"}
-          >
-            <Checkbox value={_id} checked={selectedCategories.includes(_id)} />
-            <span className="ml-2">{label}</span>
-          </div>
-        ))}
-      </div>
+    <div className="p-6 bg-gradient-to-r from-[#F7F8F9] to-[#E0E7FF] shadow-xl rounded-lg">
+  <h3 className="mb-4 text-2xl font-bold text-indigo-700">Categories</h3>
+
+ 
+  <div className="relative w-full mb-6">
+    <div className="flex items-center px-4 py-3 border border-indigo-300 rounded-lg focus-within:ring-4 focus-within:ring-indigo-500 transition-all bg-white">
+      <input
+        className="w-full bg-transparent outline-none text-indigo-700 placeholder-indigo-400"
+        placeholder="Search category..."
+        ref={ref}
+        onFocus={() => setIsFocused(true)}
+        onChange={(e) => setSearchValue(e.target.value)}
+      />
     </div>
+
+    
+    {sudgestion?.data && sudgestion?.data.length > 0 && isFocused && (
+      <div className="absolute left-0 top-[45px] z-30 w-full bg-white border border-indigo-200 rounded-lg shadow-lg mt-2 overflow-auto max-h-[200px]">
+        <ul className="py-2">
+          {sudgestion.data.map(({ label, _id }) => (
+            <li
+              key={_id}
+              onClick={() => handleSlecteCategory(_id)}
+              className="px-4 py-2 hover:bg-indigo-100 cursor-pointer flex items-center gap-3 transition-all duration-300"
+            >
+              <SquareCheck width={15} className="text-indigo-600" />
+              <span className="text-gray-800">{label}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+
+  
+  <div className="space-y-4">
+    {data?.data.map(({ label, _id }) => (
+      <div
+        onClick={() => handleCategoryChange(_id)}
+        className="flex items-center select-none cursor-pointer gap-3 transition-all duration-300 hover:bg-blue-800 px-3 py-2 rounded-lg"
+        key={_id + "category"}
+      >
+        <Checkbox value={_id} checked={selectedCategories.includes(_id)} className="border-indigo-600 checked:bg-indigo-600 checked:border-indigo-600" />
+        <span className="text-gray-800 hover:text-indigo-600">{label}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+
   );
 };
 
