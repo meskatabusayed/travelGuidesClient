@@ -21,6 +21,11 @@ export const userProfileLinks = [
     label: "Security",
     Icon: RiLockPasswordLine,
   },
+  {
+    href: "/profile/my-posts",
+    label: "My Posts",
+    Icon: RiLockPasswordLine,
+  },
   
   {
     href: "/profile/followers",

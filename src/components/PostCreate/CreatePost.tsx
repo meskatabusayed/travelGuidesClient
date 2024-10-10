@@ -187,14 +187,23 @@ export default function CreatePostModal() {
   
           <div>
             <div className="flex items-center gap-4">
-              <Switch
-                id="premium"
-                disabled={!user?.isPremium}
-                checked={isPremium}
-                onCheckedChange={setIsPremium}
-                className="bg-[#1877F2] shadow-md"
-              />
-              <Label htmlFor="premium" className="text-md text-[#4c6ef5]">Mark as Premium Content</Label>
+            <Switch
+  id="premium"
+  disabled={!user?.isPremium}
+  checked={isPremium}
+  onCheckedChange={setIsPremium}
+  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors 
+              ${isPremium ? 'bg-gradient-to-r from-purple-500 via-pink-500 to-red-500' : 'bg-gray-300'} 
+              shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed`}
+>
+  <span
+    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform 
+                ${isPremium ? 'translate-x-6' : 'translate-x-1'} 
+                shadow-md hover:bg-gradient-to-br hover:from-blue-400 hover:to-green-400`}
+  />
+</Switch>
+
+              <Label htmlFor="premium" className="text-md text-gray-700">Mark as Premium Content</Label>
             </div>
             {!user?.isPremium && (
               <span className="text-sm text-red-500">
